@@ -1,0 +1,16 @@
+# Node modules - không nên đẩy lên Git
+node_modules/
+
+# File log
+logs/
+*.log
+
+# Môi trường
+.env
+
+# VSCode settings (tùy chọn)
+.vscode/
+
+# macOS & hệ thống khác
+.DS_Store
+Thumbs.db
