@@ -5,6 +5,7 @@
 }
 
 /* Các thuộc tính cho body và html */
+
 html,
 body {
         margin: 0;
@@ -16,14 +17,17 @@ body {
         height: 100vh;
         overflow: hidden;
 
+        -webkit-user-select: none;
+        user-select: none;
+        /* gap: 10px; */
+}
+
+main {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
 
-        -webkit-user-select: none;
-        user-select: none;
-        /* gap: 10px; */
 }
 
 canvas {
@@ -52,15 +56,10 @@ canvas {
 
 }
 
-
-
-
 .text2 {
         font-size: 36px;
         font-weight: 400;
 }
-
-
 
 /* Các thuộc tính cho phần tử .letter */
 .letter {
@@ -76,7 +75,6 @@ canvas {
 }
 
 /* Định nghĩa animation flicker */
-
 
 @keyframes fadeOutUp {
         0% {
@@ -94,7 +92,6 @@ canvas {
         animation: fadeOutUp 1s ease-in forwards;
 }
 
-
 @keyframes fadeIn {
         0% {
                 opacity: 0;
@@ -107,38 +104,45 @@ canvas {
         }
 }
 
+#bubu-play {
+        transform: translate(0, 5px);
+}
 
 
+.navbar {
+        background: none;
+        outline: none;
+        border: none;
+        font-size: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 5%;
+        left: 5%;
+        width: 100%;
+        z-index: 1000;
+}
 
-.music-toggle {
+.btn {
+        width: 50px;
+        height: 50px;
         background: none;
         outline: none;
         border: none;
         cursor: pointer;
-        font-size: 2em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        /* Đặt vị trí cố định */
-        bottom: 5%;
-        /* Cách dưới 20px */
-        left: 5%;
-        /* Cách trái 20px */
-        z-index: 1000;
-        /* Đảm bảo nó luôn ở trên cùng */
 }
 
-.music-toggle:focus {
+.btn:focus {
         outline: none;
 }
 
-.music-toggle i {
+.btn i {
         font-size: 30px;
         color: #fff;
         transition: opacity 0.3s ease;
 }
 
-.music-toggle:hover i {
+.btn:hover img {
         opacity: 0.7;
 }

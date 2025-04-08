@@ -69,10 +69,10 @@ class Comet {
 
     reset(width, height) {
         this.x = Math.random() * -width
-        this.y = Math.random() * height * 0.5
-        this.length = Math.random() * 80 + 30
-        this.speedX = Math.random() * 0.5 + 0.3
-        this.speedY = Math.random() * 0.2 + 0.1
+        this.y = Math.random() * height * 0.45
+        this.length = Math.random() * 80 + 45
+        this.speedX = Math.random() * 0.4 + 0.4;
+        this.speedY = this.speedX * (Math.random() * 0.2 + 0.05); // tỷ lệ nhỏ
         this.opacity = Math.random() * 0.5 + 0.5
     }
 

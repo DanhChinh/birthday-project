@@ -12,52 +12,56 @@
 </head>
 
 <body>
-    <div class="text text1">
-        <span class="letter ">H</span>
-        <span class="letter ">A</span>
-        <span class="letter ">P</span>
-        <span class="letter ">P</span>
-        <span class="letter ">Y</span>
-        <span class="letter "></span>
-        <span class="letter ">B</span>
-        <span class="letter ">I</span>
-        <span class="letter ">R</span>
-        <span class="letter ">T</span>
-        <span class="letter ">H</span>
-        <span class="letter ">D</span>
-        <span class="letter ">A</span>
-        <span class="letter ">Y</span>
-    </div>
-    <div class="text text2">
-        <span class="letter ">T</span>
-        <span class="letter ">H</span>
-        <span class="letter ">U</span>
-        <span class="letter "></span>
-        <span class="letter ">H</span>
-        <span class="letter ">U</span>
-        <span class="letter ">Y</span>
-        <span class="letter ">E</span>
-        <span class="letter ">N</span>
-    </div>
-
-    <canvas id="birthday"></canvas>
 
 
+    <main>
+        <div class="text text1">
+            <span class="letter ">H</span>
+            <span class="letter ">A</span>
+            <span class="letter ">P</span>
+            <span class="letter ">P</span>
+            <span class="letter ">Y</span>
+            <span class="letter "></span>
+            <span class="letter ">B</span>
+            <span class="letter ">I</span>
+            <span class="letter ">R</span>
+            <span class="letter ">T</span>
+            <span class="letter ">H</span>
+            <span class="letter ">D</span>
+            <span class="letter ">A</span>
+            <span class="letter ">Y</span>
+        </div>
+        <div class="text text2">
+            <span class="letter ">T</span>
+            <span class="letter ">H</span>
+            <span class="letter ">U</span>
+            <span class="letter "></span>
+            <span class="letter ">H</span>
+            <span class="letter ">U</span>
+            <span class="letter ">Y</span>
+            <span class="letter ">E</span>
+            <span class="letter ">N</span>
+            <span> <img id="bubu-play" src="assets/img/bubu-play.gif" width="50" height="50" style="display: inline;">
+            </span>
+        </div>
 
+        <canvas id="birthday"></canvas>
+    </main>
 
-    <!-- <div class="bubu">
-        <img id="play" src="./assets/img/bubu-stop.gif" width="50" height="50" style="display: inline;">
-        <img id="pause" src="./assets/img/bubu-play.gif" width="50" height="50" style="display: none;">
-    </div> -->
-    <button id="toggle-music" class="music-toggle">
-        <!-- Nhúng SVG từ file -->
-        <img id="play-icon" src="assets/img/volume-xmark-solid.svg" width="50" height="50" style="display: inline;">
-
-        <img id="pause-icon" src="assets/img/volume-high-solid.svg" width="50" height="50" style="display: none;">
-    </button>
     <audio id="music-player" src="assets/music/baihatcmsn.mp3" preload="auto"></audio>
+    <div class="navbar">
+        <button id="toggle-music" class="btn btn-toggle">
+            <img id="play-icon" src="assets/img/volume-xmark-solid.svg">
+            <img id="pause-icon" src="assets/img/volume-high-solid.svg" style="display: none;">
+        </button>
+        <button id="toggle-page" class="btn btn-toggle">
+            <img src="assets/img/arrows-rotate-solid.svg">
+        </button>
+        <button id="share" class="btn">
+            <img src="assets/img/share-solid.svg">
+        </button>
 
-
+    </div>
 
     <script src="js/text.js"></script>
     <script src="js/canvas.js"></script>
