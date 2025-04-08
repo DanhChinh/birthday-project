@@ -4,6 +4,20 @@ const playIcon = document.getElementById('play-icon');
 const pauseIcon = document.getElementById('pause-icon');
 const audioPlayer = document.getElementById('music-player');
 
+
+let playCount = 0;
+const maxPlays = 5;
+
+// Khi bài nhạc kết thúc
+audioPlayer.addEventListener('ended', () => {
+    playCount++;
+    if (playCount < maxPlays) {
+        audioPlayer.currentTime = 0;
+        audioPlayer.play();
+    } else {
+        console.log('Phát đủ 5 lần!');
+    }
+});
 // Thiết lập mặc định là dừng nhạc
 let isPlaying = false;
 

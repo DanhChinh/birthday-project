@@ -4,6 +4,8 @@ const PI2 = Math.PI * 2
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 const timestamp = () => new Date().getTime()
 
+var showTaurus = false;
+setTimeout(() => { showTaurus = true }, 5000);
 // ===== Star Class =====
 class Star {
     constructor(width, height) {
@@ -81,16 +83,21 @@ class Comet {
     }
 
     draw(ctx) {
-        const grad = ctx.createLinearGradient(this.x, this.y, this.x - this.length, this.y - this.length / 3)
-        grad.addColorStop(0, `rgba(255,255,255,${this.opacity})`)
-        grad.addColorStop(1, `rgba(255,255,255,0)`)
+        const angle = Math.atan2(this.speedY, this.speedX); // hướng di chuyển
 
-        ctx.beginPath()
-        ctx.strokeStyle = grad
-        ctx.lineWidth = 2
-        ctx.moveTo(this.x, this.y)
-        ctx.lineTo(this.x - this.length, this.y - this.length / 3)
-        ctx.stroke()
+        const tailX = this.x - this.length * Math.cos(angle);
+        const tailY = this.y - this.length * Math.sin(angle);
+
+        const grad = ctx.createLinearGradient(this.x, this.y, tailX, tailY);
+        grad.addColorStop(0, `rgba(255,255,255,${this.opacity})`);
+        grad.addColorStop(1, `rgba(255,255,255,0)`);
+
+        ctx.beginPath();
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 2;
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(tailX, tailY);
+        ctx.stroke();
     }
 }
 
@@ -200,10 +207,10 @@ class Birthday {
         this.stars.update(delta)
         this.stars.draw(ctx)
 
-        // ==== SAO CHỔI ====
-        if (elapsed >= 8 && elapsed <= 210) {
+        // ==== SAO BĂNG ====
+        if (elapsed >= 10 && elapsed <= 180) {
             if (this.comets.length === 0) {
-                const cometCount = random(1, 9)
+                const cometCount = random(3, 9)
                 this.comets = Array.from({ length: cometCount }, () => new Comet(this.width, this.height))
             }
             this.comets.forEach(comet => {
@@ -219,7 +226,7 @@ class Birthday {
         for (let firework of this.fireworks) firework.update(delta)
 
         this.counter += delta * 3
-        if (this.counter >= 1 && elapsed <= 1800) {
+        if (this.counter >= 5 && elapsed <= 300) {
             this.fireworks.push(new Firework(
                 random(this.spawnA, this.spawnB),
                 this.height,
@@ -251,3 +258,11 @@ document.ontouchstart = evt => birthday.onClick(evt)
         then = now
         birthday.update(delta)
     })()
+
+
+
+
+
+
+
+
